@@ -1,5 +1,6 @@
 import { DoorOpenComponent } from "./door-component"
 import { CRDTSystem } from "./system"
+import * as utils from '@dcl/ecs-scene-utils'
 
 engine.addSystem(new CRDTSystem("wss://test-sfu.decentraland.zone"))
 // engine.addSystem(new CRDTSystem("ws://localhost:8080"))
@@ -70,12 +71,35 @@ class OpenerSystem {
     for (const entity of this.entitites.entities) {
       const openComponent = entity.getComponent(DoorOpenComponent)
       const transform = entity.getComponent(Transform)
+
+      const wasChanged = (openComponent.open && transform.rotation !== openPos)
+        || (!openComponent.open && transform.rotation !== closedPos)
+
+      if (wasChanged) {
+        const newEntity = new Entity()
+        const clip = new AudioClip("sounds/door.wav")
+        const source = new AudioSource(clip)
+        newEntity.addComponent(source)
+        engine.addEntity(newEntity)
+        source.playing = true
+        
+        utils.setTimeout(2000, () => {
+          engine.removeEntity(newEntity)
+        })
+      }
+
       transform.rotation = openComponent.open ? openPos : closedPos
+
+
     }
   }
 }
 
 engine.addSystem(new OpenerSystem())
+
+const clip = new AudioClip("sounds/door.wav")
+const source = new AudioSource(clip)
+door.addComponent(source)
 
 // Set the click behavior for the door
 door.addComponent(

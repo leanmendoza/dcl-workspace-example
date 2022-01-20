@@ -6,6 +6,7 @@
     "start": "dcl start"
   },
   "devDependencies": {
+    "decentraland": "https://sdk-team-cdn.decentraland.org/decentraland-cli/branch/feat/workspaces/decentraland-3.8.4-20220120200630.commit-ebe7faf.tgz",
     "decentraland-ecs": "https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/feat/workspace/decentraland-ecs-6.8.1-1725423553.commit-aa5f3d0.tgz"
   },
   "dependencies": {
