@@ -5,6 +5,9 @@
     },
     {
       "path": "portable-experience"
+    },
+    {
+      "path": "crdt-scene"
     }
   ],
   "settings": {}

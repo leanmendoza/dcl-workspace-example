@@ -44,11 +44,11 @@ function spawnCube(x: number, y: number, z: number) {
 
 /// --- Spawn a cube ---
 
-const cube = spawnCube(8, 5, 8)
+const cube = spawnCube(8*81, 5, 8*157)
 
 cube.addComponent(
   new OnClick(() => {
-    cube.getComponent(Transform).scale.z *= 1.1
+    cube.getComponent(Transform).scale.z *= 1.
     cube.getComponent(Transform).scale.x *= 0.9
 
     spawnCube(Math.random() * 8 + 1, Math.random() * 8, Math.random() * 8 + 1)

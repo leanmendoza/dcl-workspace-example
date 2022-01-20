@@ -1,8 +1,8 @@
 {
   "display": {
-    "title": "DCL Scene",
-    "description": "My new Decentraland project",
-    "navmapThumbnail": "images/scene-thumbnail.png",
+    "title": "DCL Scene - CRDT",
+    "description": "CRDT sync",
+    "navmapThumbnail": "images/scene.png",
     "favicon": "favicon_asset"
   },
   "owner": "",
@@ -13,8 +13,10 @@
   "main": "bin/game.js",
   "tags": [],
   "scene": {
-    "parcels": ["81,155"],
-    "base": "81,155"
+    "parcels": [
+      "81,157"
+    ],
+    "base": "81,157"
   },
   "spawnPoints": [
     {
